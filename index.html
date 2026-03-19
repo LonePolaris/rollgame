@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>订单骰子大富翁</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">无限订单 / 投骰子 / 累积分</p>
+        <h1>订单骰子大富翁</h1>
+        <p class="hero-text">完成订单获得骰子，消耗 1x / 5x / 10x 骰子进行投掷，落点积分会按倍率结算，持续解锁更高奖励地图。</p>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <span>当前骰子</span>
+          <strong id="diceCount">0</strong>
+        </div>
+        <div class="stat-card">
+          <span>累计积分</span>
+          <strong id="totalScore">0</strong>
+        </div>
+        <div class="stat-card">
+          <span>当前地图</span>
+          <strong id="currentMapName">地图 1</strong>
+        </div>
+        <div class="stat-card">
+          <span>当前位置</span>
+          <strong id="positionText">1 / 10</strong>
+        </div>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="panel controls-panel">
+        <h2>订单中心</h2>
+        <p class="panel-desc">订单无限交付，每完成一单会掉落一枚骰子。</p>
+        <div class="button-row">
+          <button class="action-button order-button" data-order="1">完成 1 单</button>
+          <button class="action-button order-button" data-order="5">完成 5 单</button>
+          <button class="action-button order-button" data-order="10">完成 10 单</button>
+        </div>
+
+        <h2>投骰子</h2>
+        <p class="panel-desc">消耗对应数量骰子，落点奖励按倍率同步放大。</p>
+        <div class="button-row">
+          <button class="action-button roll-button" data-multiplier="1">1x 投掷</button>
+          <button class="action-button roll-button" data-multiplier="5">5x 投掷</button>
+          <button class="action-button roll-button" data-multiplier="10">10x 投掷</button>
+        </div>
+
+        <div class="dice-board">
+          <div class="dice-face" id="diceFace">?</div>
+          <div class="roll-result" id="rollResult">准备开始</div>
+        </div>
+
+        <div class="log-box">
+          <div class="log-title">战报</div>
+          <ul id="logList"></ul>
+        </div>
+      </section>
+
+      <section class="panel board-panel">
+        <div class="board-header">
+          <div>
+            <h2>地图选择</h2>
+            <p class="panel-desc">累计积分可解锁更高收益地图。</p>
+          </div>
+          <div class="unlock-tips">
+            <span>1000 分解锁地图 2</span>
+            <span>3000 分解锁地图 3</span>
+          </div>
+        </div>
+        <div class="map-selector" id="mapSelector"></div>
+        <div class="board" id="board"></div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+</html>
